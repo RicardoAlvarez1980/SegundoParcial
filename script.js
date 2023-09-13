@@ -48,4 +48,17 @@ document.addEventListener('DOMContentLoaded', function () {
             <p>Este es el contenido principal.</p>
         `;
     });
+    // Agrega un evento de clic al enlace de "Acerca de" en la barra de navegación
+    const enlaceAcercaDe = document.querySelector('nav a[href="#acercade"]');
+    enlaceAcercaDe.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log("Evento de clic activado");
+        // Oculta el aside
+        aside.style.display = 'none';
+        // Cambia el contenido de la sección al contenido "Acerca de"
+        contenido.innerHTML = `
+                <h2>Acerca de</h2>
+                <p>Esta página web trata sobre...</p>
+            `;
+    });
 });
