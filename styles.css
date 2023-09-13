@@ -29,14 +29,16 @@ nav {
 
 main {
     display: flex;
-    flex: 1; /* El main ocupa todo el espacio disponible */
+    flex: 1;
+    /* El main ocupa todo el espacio disponible */
 }
 
 section {
     background: linear-gradient(135deg, #4CAF50, #388E3C);
     color: #fff;
     padding: 20px;
-    flex: 1; /* El section ocupa 1/3 del espacio disponible */
+    flex: 1;
+    /* El section ocupa 1/3 del espacio disponible */
 }
 
 aside {
@@ -46,7 +48,8 @@ aside {
     font-size: 50px;
     text-align: center;
     padding: 20px;
-    flex: 2; /* El aside ocupa 2/3 del espacio disponible */
+    flex: 2;
+    /* El aside ocupa 2/3 del espacio disponible */
 }
 
 nav ul {
@@ -81,14 +84,52 @@ footer {
 /* Estilos para hacer la página responsiva */
 @media screen and (max-width: 768px) {
     main {
-        flex-direction: column; /* Cambiar a diseño de columna en dispositivos pequeños */
+        flex-direction: column;
+        /* Cambiar a diseño de columna en dispositivos pequeños */
     }
 
     section {
-        flex: 1; /* La sección ocupará todo el espacio disponible en dispositivos pequeños */
+        flex: 1;
+        /* La sección ocupará todo el espacio disponible en dispositivos pequeños */
     }
 
     aside {
-        flex: 1; /* El aside ocupará todo el espacio disponible en dispositivos pequeños */
+        flex: 1;
+        /* El aside ocupará todo el espacio disponible en dispositivos pequeños */
     }
+}
+
+/* Estilos para el formulario */
+form {
+    margin: 20px;
+    /* Margen para el formulario */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Altura al 100% para ocupar todo el alto del contenedor padre */
+}
+
+/* Estilo para cada campo del formulario */
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Ajustar el ancho de los campos de entrada y textarea a 200px */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 200px;
+    /* Ancho fijo de 200px */
+}
+
+/* Ajustar el botón de enviar */
+input[type="submit"] {
+    align-self: flex-start;
+    /* Alinear el botón a la izquierda */
+    width: auto;
+    /* Ancho automático según el contenido */
+    padding: 5px 10px;
+    /* Añadir espacio alrededor del texto del botón */
 }

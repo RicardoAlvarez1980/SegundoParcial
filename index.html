@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Mi Página Web</title>
 </head>
+
 <body>
     <header>
         <h1>Central de Juegos</h1>
@@ -13,20 +15,44 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
+            <li><a href="#inicio">Inicio</a></li>
             <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
     <main>
-        <section>
-            <h2>Contenido Principal</h2>
-            <p>Bienvenido a mi página web.</p>
-        
+        <section id="contenido">
+            <!-- Contenido principal (puede ser el contenido por defecto) -->
+            <h2>Inicio</h2>
+            <p>Este es el contenido principal.</p>
+        </section>
+        <section id="contacto" style="display: none;">
+            <h2>Contacto</h2>
+            <form>
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <label for="comentarios">Comentarios:</label>
+                    <textarea id="comentarios" name="comentarios" rows="4" required></textarea>
+                </div>
+                <!-- Botón de Enviar -->
+                <input type="submit" value="Enviar">
+            </form>
+
         </section>
         <aside>
             <div id="game-container">
-            <p>ACA VA A IR EL TABLERO DEL JUEGO</p>
+                <p>ACA VA A IR EL TABLERO DEL JUEGO</p>
             </div>
         </aside>
     </main>
@@ -35,4 +61,5 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
