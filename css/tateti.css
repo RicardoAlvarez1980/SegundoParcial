@@ -1,0 +1,137 @@
+/* Estilos para tateti.html */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+}
+
+header {
+    background-image: url('../img/header.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+nav {
+    background-image: url('../img/header.jpg');
+    background-size: cover;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    /* El main ocupa todo el espacio disponible */
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center; /* Centrar el contenido verticalmente */
+}
+
+#game-container {
+    background: linear-gradient(135deg, #4CAF50, #388E3C); /* Cambia el color de fondo del juego */
+    padding: 20px;
+    border: 1px solid #ccc; /* Agrega un borde al contenedor del juego */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra al contenedor */
+}
+
+footer {
+    background-image: url('../img/header.jpg');
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    /* Fijar el footer en la parte inferior de la ventana */
+    position: fixed;
+    bottom: 0;
+}
+/* Estilos para hacer la página responsiva */
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        /* Cambiar a diseño de columna en dispositivos pequeños */
+    }
+}
+:root{
+    --color-primario: rgb(28, 0, 34);
+    --line-style: 10px solid var(--color-primario);
+    --font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background-color: rgb(214, 214, 214);
+    user-select: none;
+}
+
+h1{
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 4rem;
+    color: var(--color-primario);
+}
+
+#contenedorGrilla{
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    justify-content: center;
+}
+
+.cuadrado{
+    color: var(--color-primario);
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 8rem;
+    transition: 50ms ease-in-out;
+}
+
+.arriba{
+    border-bottom: var(--line-style);
+}
+
+.medio{
+    border-left: var(--line-style);
+    border-right: var(--line-style);
+}
+
+.abajo{
+    border-top: var(--line-style);
+}
+
+.ganador{
+    background-color: rgb(79, 122, 79);
+}
+
+dialog{
+    text-align: center;
+    min-width: 50vw;
+    background-color: rgba(240, 248, 255, 0.23);
+    padding: 5rem;
+    border: unset;
+}
+
+dialog::backdrop{
+    backdrop-filter: blur(3px);
+}
+
+dialog h2{
+    font-family: var(--font-family);
+    font-size: xx-large;
+}
+
+dialog button{
+    font-size: larger;
+    padding: 1rem;
+}
