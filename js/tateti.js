@@ -19,7 +19,6 @@ cuadrados.forEach((cuadrado, posicion) => {
         if (estadoJuego === "PAUSA") return;
         if (cuadrado.textContent !== "") return;
         cuadrado.textContent = estadoJuego === "P1" ? x : o;
-        estadoJuego = estadoJuego === "P1" ? "P2" : "P1";
         const posicionGanadora = revisarSiHayGanador();
 
         if (typeof posicionGanadora === "object") {
@@ -29,6 +28,9 @@ cuadrados.forEach((cuadrado, posicion) => {
 
         if (posicionGanadora === "empate") {
             mostrarModal("Empate");
+        } else {
+            // Cambiar al siguiente jugador solo si no hay empate ni ganador
+            estadoJuego = estadoJuego === "P1" ? "P2" : "P1";
         }
     });
 });
@@ -75,12 +77,12 @@ function ganar(posicionesGanadoras) {
     if (estadoJuego === "P1") {
         puntajeJugador1 += 3;
         puntajeElement1.textContent = `Puntaje Jugador 1: ${puntajeJugador1}`;
+        mostrarModal("Gano el jugador 1");
     } else {
         puntajeJugador2 += 3;
         puntajeElement2.textContent = `Puntaje Jugador 2: ${puntajeJugador2}`;
+        mostrarModal("Gano el jugador 2");
     }
-
-    mostrarModal("Ganador jugador " + (estadoJuego === "P1" ? "1" : "2"));
 }
 
 function mostrarModal(texto) {
