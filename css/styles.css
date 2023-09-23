@@ -21,6 +21,10 @@ header {
     width: 100%;
 }
 
+h2 {
+    font-size: 2em;
+
+}
 nav {
     background-image: url('../img/header.jpg');
     background-size: cover;
@@ -53,7 +57,7 @@ aside {
     font-size: 50px;
     text-align: center;
     padding: 20px;
-    flex: 2;
+    flex: 5;
     /* El aside ocupa 2/3 del espacio disponible */
 }
 

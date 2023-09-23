@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const juego = boton.getAttribute('data-juego');
                 if (juego === 'tateti') {
                     // Abre una nueva ventana con Tateti.html
-                    window.open('juegos/tateti.html', '_blank');
+                    window.open('./juegos/tateti.html', '_blank');
                 } else if (juego === 'ahorcado') {
                     // Abre una nueva ventana con Ahorcado.html
-                    window.open('juegos/ahorcado.html', '_blank');
+                    window.open('./juegos/ahorcado.html', '_blank');
                 }
             });
         });
@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
         contenido.style.display = 'block';
         juegoContainer.style.display = 'none';
         contenido.innerHTML = `
-            <h2 id="acercade">Acerca de</h2>
-            <p>Esta página web trata sobre...</p>
+            <h2 id="acercade">Propósito de La Página</h2>
+            <p>Página realizada como exámen para la materia Seminario de Programación.</p>
         `;
     }
 

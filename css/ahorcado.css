@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -112,4 +112,95 @@ body {
 #hangman-container {
   display: flex;
   justify-content: center;
+}
+
+/* Estilos para la página */
+body {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+
+header {
+  background-image: url('../img/header.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
+main {
+  box-sizing: border-box;
+ 
+  /* El main ocupa todo el espacio disponible */
+}
+
+.inicio {
+  font-size: 3em;
+}
+
+
+
+footer {
+  background-image: url('../img/header.jpg');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  /* Fijar el footer en la parte inferior de la ventana */
+  position: fixed;
+  bottom: 0;
+}
+
+
+/* Estilos para hacer la página responsiva */
+@media screen and (max-width: 768px) {
+  main {
+      flex-direction: column;
+      /* Cambiar a diseño de columna en dispositivos pequeños */
+  }
+
+  section {
+      flex: 1;
+      /* La sección ocupará todo el espacio disponible en dispositivos pequeños */
+  }
+
+  aside {
+      flex: 1;
+      /* El aside ocupará todo el espacio disponible en dispositivos pequeños */
+  }
+}
+
+/* Estilos para los botones de juego */
+.juego-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 20px;
+}
+
+/* Estilos para los botones "Iniciar Tateti" e "Iniciar Ahorcado" */
+.juego-button {
+  padding: 25px 30px; /* Aumentamos el padding para hacer los botones más grandes */
+  margin: 20px 0;
+  font-size: 2em; /* Aumentamos el tamaño de la letra */
+  background-color: #3498db; /* Cambiamos el color a celeste */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.juego-button:hover {
+  background-color: #2980b9; /* Color de fondo al pasar el cursor */
 }

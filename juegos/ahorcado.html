@@ -6,35 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego del Ahorcado</title>
     <link rel="stylesheet" href="../css/ahorcado.css">
-    <link rel="stylesheet" href="../css/styles.css">
+
 </head>
 
 <body>
-    <h1>Juego de Ahorcado</h1>
-    <div id="hangman-container">
-        <img id="hangman" src="" alt="Ahorcado">
-    </div>
-    <div id="word-container">
-        <!-- Aquí se mostrará la palabra oculta -->
-    </div>
-    <div id="guesses-container">
-        <div id="guesses">
-            <!-- Aquí se mostrarán las letras adivinadas -->
+    <header>
+        <h1>Juego de Ahorcado</h1>
+        <h2>PARA DIVERTIRSE JUGANDO</h2>
+    </header>
+    <main class="containter">
+        
+        <div id="word-container">
+            <!-- Aquí se mostrará la palabra oculta -->
         </div>
-        <div id="attempts">
-            <!-- Aquí se mostrará el número de intentos restantes -->
+        <div id="guesses-container">
+            <div id="guesses">
+                <!-- Aquí se mostrarán las letras adivinadas -->
+            </div>
+            <div id="attempts">
+                <!-- Aquí se mostrará el número de intentos restantes -->
+            </div>
         </div>
-    </div>
-    <div id="keyboard">
-        <!-- Aquí se mostrará el teclado virtual -->
-    </div>
-    <div id="victory-message" class="hidden">
-        <p id="victory-text"></p>
-    </div>
-    <div id="loss-message" class="hidden">
-        <p id="loss-text"></p>
-    </div>
-    <button id="restart-button" class="hidden" onclick="restartGame()">Reiniciar Juego</button>
+        <div id="hangman-container">
+            <img id="hangman" src="" alt="Ahorcado">
+        </div>
+
+        <div id="keyboard">
+            <!-- Aquí se mostrará el teclado virtual -->
+        </div>
+        <div id="victory-message" class="hidden">
+            <p id="victory-text"></p>
+        </div>
+        <div id="loss-message" class="hidden">
+            <p id="loss-text"></p>
+        </div>
+        <button id="restart-button" class="hidden" onclick="restartGame()">Reiniciar Juego</button>
+    </main>
+    <footer>
+        <p>&copy; 2023 Página de Entretenimiento</p>
+    </footer>
     <script src="../js/ahorcado.js"></script>
 </body>
 
