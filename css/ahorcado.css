@@ -1,0 +1,115 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para el tablero del juego */
+#hangman-board {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#word-container {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#guesses {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#attempts {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#hangman {
+  max-width: 100%;
+}
+
+#keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+#keyboard button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#keyboard button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Estilos para el mensaje de victoria y pérdida */
+#victory-message,
+#loss-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 24px;
+  z-index: 9999;
+}
+
+#victory-message p,
+#loss-message p {
+  margin: 0;
+}
+
+#restart-button {
+  display: block;
+  margin-top: 10px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+/* Estilos para el contenedor del juego */
+#game-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Estilos para la imagen del ahorcado */
+#hangman-container {
+  display: flex;
+  justify-content: center;
+}
