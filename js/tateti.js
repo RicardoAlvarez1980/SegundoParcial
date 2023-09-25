@@ -15,6 +15,20 @@ const juegoTresEnLinea = (function () {
     const puntajeElement1 = document.getElementById("puntaje-jugador1");
     const puntajeElement2 = document.getElementById("puntaje-jugador2");
   
+    // Función para actualizar el indicador de turno y ficha
+    function actualizarIndicador() {
+      const jugadorActualElement = document.getElementById("jugador-actual");
+      const fichaActualElement = document.getElementById("ficha-actual");
+  
+      if (estadoJuego === "P1") {
+        jugadorActualElement.textContent = "Jugador 1";
+        fichaActualElement.textContent = x;
+      } else {
+        jugadorActualElement.textContent = "Computadora";
+        fichaActualElement.textContent = o;
+      }
+    }
+  
     cuadrados.forEach((cuadrado, posicion) => {
       cuadrado.addEventListener("click", () => {
         if (estadoJuego === "PAUSA" || estadoJuego === "P2") return;
@@ -32,6 +46,7 @@ const juegoTresEnLinea = (function () {
         } else {
           // Cambiar al siguiente jugador solo si no hay empate ni ganador
           estadoJuego = "P2";
+          actualizarIndicador(); // Actualizar el indicador de turno y ficha
           // Llamar a la función que permite a la computadora jugar
           jugarComputadora();
         }
@@ -93,6 +108,7 @@ const juegoTresEnLinea = (function () {
       });
       modal.close();
       estadoJuego = "P1";
+      actualizarIndicador(); // Restablecer el indicador de turno y ficha
     }
   
     function jugarComputadora() {
@@ -116,10 +132,14 @@ const juegoTresEnLinea = (function () {
             mostrarModal("Empate");
           } else {
             estadoJuego = "P1";
+            actualizarIndicador(); // Actualizar el indicador de turno y ficha
           }
         }
       }, 1500); // Retraso de 1.5 segundos (1500 milisegundos)
     }
+  
+    // Llamamos a la función para iniciar el juego
+    actualizarIndicador();
   
     // Devuelve un objeto que expone solo las funciones y variables necesarias
     return {
