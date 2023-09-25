@@ -126,5 +126,4 @@ const juegoTresEnLinea = (function () {
       reiniciarJuego: reiniciarJuego,
     };
   })();
-
   
