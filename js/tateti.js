@@ -98,31 +98,27 @@ const juegoTresEnLinea = (function () {
     function jugarComputadora() {
       if (estadoJuego !== "P2") return;
   
-      // Implementa la lógica para que la computadora realice su jugada aquí
-      // Por ejemplo, puedes generar un número aleatorio para seleccionar una casilla vacía.
-      // Luego, puedes llenar esa casilla con el símbolo de la computadora (o).
-      // Después de la jugada de la computadora, verifica si hay un ganador o empate.
-      // Asegúrate de cambiar el estado del juego de vuelta a "P1" para que el usuario pueda jugar.
+      // Simulamos un retraso para que parezca que la computadora está pensando
+      setTimeout(() => {
+        const casillasVacias = Array.from(cuadrados).filter((cuadrado) => cuadrado.textContent === "");
+        if (casillasVacias.length > 0) {
+          const indiceAleatorio = Math.floor(Math.random() * casillasVacias.length);
+          const casillaAleatoria = casillasVacias[indiceAleatorio];
+          casillaAleatoria.textContent = o;
   
-      // Ejemplo de una jugada aleatoria de la computadora (debes implementar tu propia lógica):
-      const casillasVacias = Array.from(cuadrados).filter((cuadrado) => cuadrado.textContent === "");
-      if (casillasVacias.length > 0) {
-        const indiceAleatorio = Math.floor(Math.random() * casillasVacias.length);
-        const casillaAleatoria = casillasVacias[indiceAleatorio];
-        casillaAleatoria.textContent = o;
+          const posicionGanadora = revisarSiHayGanador();
+          if (typeof posicionGanadora === "object") {
+            ganar(posicionGanadora, "P2");
+            return;
+          }
   
-        const posicionGanadora = revisarSiHayGanador();
-        if (typeof posicionGanadora === "object") {
-          ganar(posicionGanadora, "P2");
-          return;
+          if (posicionGanadora === "empate") {
+            mostrarModal("Empate");
+          } else {
+            estadoJuego = "P1";
+          }
         }
-  
-        if (posicionGanadora === "empate") {
-          mostrarModal("Empate");
-        } else {
-          estadoJuego = "P1";
-        }
-      }
+      }, 1500); // Retraso de 1.5 segundos (1500 milisegundos)
     }
   
     // Devuelve un objeto que expone solo las funciones y variables necesarias
@@ -130,4 +126,5 @@ const juegoTresEnLinea = (function () {
       reiniciarJuego: reiniciarJuego,
     };
   })();
+
   
