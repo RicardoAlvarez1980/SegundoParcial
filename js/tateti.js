@@ -7,7 +7,7 @@ const juegoTresEnLinea = (function () {
     const cuadrados = document.querySelectorAll(".cuadrado");
     const modal = document.querySelector("dialog");
     const textoModal = modal.querySelector("h2");
-    let estadoJuego = "P1"; // P1 | P2 | PAUSA
+    let estadoJuego = "P1"; // P1 (Usuario) | P2 (Computadora) | PAUSA
     let puntajeJugador1 = 0;
     let puntajeJugador2 = 0;
   
@@ -17,13 +17,13 @@ const juegoTresEnLinea = (function () {
   
     cuadrados.forEach((cuadrado, posicion) => {
       cuadrado.addEventListener("click", () => {
-        if (estadoJuego === "PAUSA") return;
+        if (estadoJuego === "PAUSA" || estadoJuego === "P2") return;
         if (cuadrado.textContent !== "") return;
-        cuadrado.textContent = estadoJuego === "P1" ? x : o;
+        cuadrado.textContent = x;
         const posicionGanadora = revisarSiHayGanador();
   
         if (typeof posicionGanadora === "object") {
-          ganar(posicionGanadora);
+          ganar(posicionGanadora, "P1");
           return;
         }
   
@@ -31,7 +31,9 @@ const juegoTresEnLinea = (function () {
           mostrarModal("Empate");
         } else {
           // Cambiar al siguiente jugador solo si no hay empate ni ganador
-          estadoJuego = estadoJuego === "P1" ? "P2" : "P1";
+          estadoJuego = "P2";
+          // Llamar a la función que permite a la computadora jugar
+          jugarComputadora();
         }
       });
     });
@@ -64,17 +66,17 @@ const juegoTresEnLinea = (function () {
       return "empate";
     }
   
-    function ganar(posicionesGanadoras) {
+    function ganar(posicionesGanadoras, jugador) {
       posicionesGanadoras.forEach((posicion) => cuadrados[posicion].classList.toggle("ganador", true));
   
-      if (estadoJuego === "P1") {
+      if (jugador === "P1") {
         puntajeJugador1 += 3;
         puntajeElement1.textContent = `Puntaje Jugador 1: ${puntajeJugador1}`;
         mostrarModal("Gano el jugador 1");
       } else {
         puntajeJugador2 += 3;
-        puntajeElement2.textContent = `Puntaje Jugador 2: ${puntajeJugador2}`;
-        mostrarModal("Gano el jugador 2");
+        puntajeElement2.textContent = `Puntaje Computadora: ${puntajeJugador2}`;
+        mostrarModal("Gano la computadora");
       }
     }
   
@@ -91,6 +93,36 @@ const juegoTresEnLinea = (function () {
       });
       modal.close();
       estadoJuego = "P1";
+    }
+  
+    function jugarComputadora() {
+      if (estadoJuego !== "P2") return;
+  
+      // Implementa la lógica para que la computadora realice su jugada aquí
+      // Por ejemplo, puedes generar un número aleatorio para seleccionar una casilla vacía.
+      // Luego, puedes llenar esa casilla con el símbolo de la computadora (o).
+      // Después de la jugada de la computadora, verifica si hay un ganador o empate.
+      // Asegúrate de cambiar el estado del juego de vuelta a "P1" para que el usuario pueda jugar.
+  
+      // Ejemplo de una jugada aleatoria de la computadora (debes implementar tu propia lógica):
+      const casillasVacias = Array.from(cuadrados).filter((cuadrado) => cuadrado.textContent === "");
+      if (casillasVacias.length > 0) {
+        const indiceAleatorio = Math.floor(Math.random() * casillasVacias.length);
+        const casillaAleatoria = casillasVacias[indiceAleatorio];
+        casillaAleatoria.textContent = o;
+  
+        const posicionGanadora = revisarSiHayGanador();
+        if (typeof posicionGanadora === "object") {
+          ganar(posicionGanadora, "P2");
+          return;
+        }
+  
+        if (posicionGanadora === "empate") {
+          mostrarModal("Empate");
+        } else {
+          estadoJuego = "P1";
+        }
+      }
     }
   
     // Devuelve un objeto que expone solo las funciones y variables necesarias
