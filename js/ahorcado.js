@@ -28,7 +28,7 @@ function updateUI() {
     const hangmanImg = document.getElementById("hangman");
 
     // Actualizar la palabra oculta
-    let displayWord = "Palabra a adivinar:" + "";
+    let displayWord = "Palabra a adivinar: ";
     for (const letter of word) {
         if (guessedLetters.includes(letter.toLowerCase()) || !letter.match(/[a-zA-Z]/)) {
             displayWord += letter;

@@ -204,3 +204,13 @@ footer {
 .juego-button:hover {
   background-color: #2980b9; /* Color de fondo al pasar el cursor */
 }
+
+#word-container, #guesses-container, #guesses, #attempts, #hangman-container {
+  font-family: Arial, sans-serif;
+  color: white;
+  font-size: 1.5rem;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
