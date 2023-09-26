@@ -1,4 +1,4 @@
-const words = ["html", "css", "web"];
+const words = ["html", "css", "web", "programacion", "javascript"];
 let word = "";
 let guessedLetters = [];
 let attempts = 6;

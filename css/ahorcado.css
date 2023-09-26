@@ -1,9 +1,28 @@
-/* Estilos generales */
+/* Estilos para la página */
 body {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+header {
+  background-image: url('../img/header.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+main {
+  box-sizing: border-box;
+ 
+  /* El main ocupa todo el espacio disponible */
 }
 
 .container {
@@ -12,6 +31,13 @@ body {
   padding: 20px;
 }
 
+#game-status{
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 22px;
+  max-width: fit-content;
+}
 /* Estilos para el tablero del juego */
 #hangman-board {
   background-color: #fff;
@@ -113,35 +139,8 @@ body {
 #hangman-container {
   display: flex;
   justify-content: center;
-}
-
-/* Estilos para la página */
-body {
-  background: linear-gradient(135deg, #4CAF50, #388E3C);
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-}
-
-
-header {
-  background-image: url('../img/header.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  width: 100%;
-}
-
-main {
-  box-sizing: border-box;
- 
-  /* El main ocupa todo el espacio disponible */
 }
 
 .inicio {
