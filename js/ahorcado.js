@@ -120,12 +120,17 @@ function mostrarModal(texto, mostrarBotonReinicio, esVictoria) {
     } else {
         restartButton.style.display = "none";
     }
+
+    disableKeyboard(); // Llama a la función para deshabilitar el teclado y cambiar el color de fondo de los botones a gris
 }
 
-// Función para deshabilitar el teclado
+// Función para deshabilitar el teclado y hacer que los botones queden en gris
 function disableKeyboard() {
     const keyboardButtons = document.querySelectorAll("#keyboard button");
-    keyboardButtons.forEach((button) => (button.disabled = true));
+    keyboardButtons.forEach((button) => {
+        button.disabled = true;
+        button.style.backgroundColor = "#cccccc"; // Cambia el color de fondo a gris
+    });
 }
 
 // Función para reiniciar el juego

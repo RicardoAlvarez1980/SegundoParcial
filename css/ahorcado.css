@@ -39,6 +39,7 @@ body {
 
 #hangman {
   max-width: 100%;
+  border: 1px solid black;
 }
 
 #keyboard {
@@ -91,10 +92,10 @@ body {
 
 #restart-button {
   display: block;
-  margin-top: 10px;
-  background-color: #fff;
-  color: #000;
-  border: none;
+  margin: 20px auto;
+  background-color: #007bff;
+  color: #fff;  
+  border: solid 1px white;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
@@ -146,8 +147,6 @@ main {
 .inicio {
   font-size: 3em;
 }
-
-
 
 footer {
   background-image: url('../img/header.jpg');
@@ -205,7 +204,7 @@ footer {
   background-color: #2980b9; /* Color de fondo al pasar el cursor */
 }
 
-#word-container, #guesses-container, #guesses, #attempts, #hangman-container {
+#word-container, #guesses-container, #guesses, #attempts, #hangman-container{
   font-family: Arial, sans-serif;
   color: white;
   font-size: 1.5rem;
@@ -213,4 +212,9 @@ footer {
   font-weight: bold;
   margin-bottom: 5px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+/* Estilo para el botón "Reiniciar Juego" al pasar el mouse sobre él */
+#restart-button:hover {
+  background-color: #ddd; /* Cambiar el color de fondo al pasar el mouse sobre el botón */
 }
