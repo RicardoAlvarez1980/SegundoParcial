@@ -3,31 +3,32 @@ let word = "";
 let guessedLetters = [];
 let attempts = 6;
 let hangmanStep = 0;
+let puntajeAcumulado = 0;
 
-// Función para seleccionar una palabra al azar
 function selectRandomWord() {
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
 }
 
-// Función para iniciar el juego
 function startGame() {
     word = selectRandomWord();
     guessedLetters = [];
     attempts = 6;
     hangmanStep = 0;
+    puntajeAcumulado = 0; // Reiniciar el puntaje acumulado al iniciar el juego
     updateUI();
+    enableKeyboard(); // Habilitar el teclado al iniciar el juego
 }
 
-// Función para actualizar la interfaz de usuario
 function updateUI() {
     const wordContainer = document.getElementById("word-container");
     const guessesContainer = document.getElementById("guesses");
     const attemptsContainer = document.getElementById("attempts");
     const keyboardContainer = document.getElementById("keyboard");
     const hangmanImg = document.getElementById("hangman");
+    const puntajeAcumuladoElement = document.getElementById("puntaje-container");
+    puntajeAcumuladoElement.textContent = "Puntaje acumulado: " + puntajeAcumulado;
 
-    // Actualizar la palabra oculta
     let displayWord = "Palabra a adivinar: ";
     for (const letter of word) {
         if (guessedLetters.includes(letter.toLowerCase()) || !letter.match(/[a-zA-Z]/)) {
@@ -38,16 +39,10 @@ function updateUI() {
     }
     wordContainer.textContent = displayWord;
 
-    // Actualizar las letras adivinadas
     guessesContainer.textContent = "Letras adivinadas: " + guessedLetters.join(", ");
-
-    // Actualizar los intentos restantes
     attemptsContainer.textContent = "Intentos restantes: " + attempts;
-
-    // Actualizar la imagen del ahorcado
     hangmanImg.src = "../img/ahorcado/hangman" + hangmanStep + ".png";
 
-    // Crear el teclado virtual
     keyboardContainer.innerHTML = "";
     for (let i = 65; i <= 90; i++) {
         const letter = String.fromCharCode(i);
@@ -59,9 +54,10 @@ function updateUI() {
         }
         keyboardContainer.appendChild(button);
     }
+
+    puntajeAcumuladoElement.textContent = "Puntaje acumulado: " + puntajeAcumulado;
 }
 
-// Función para hacer una suposición
 function makeGuess(letter) {
     if (!guessedLetters.includes(letter.toLowerCase())) {
         guessedLetters.push(letter.toLowerCase());
@@ -69,6 +65,8 @@ function makeGuess(letter) {
         if (!word.toLowerCase().includes(letter.toLowerCase())) {
             attempts--;
             hangmanStep++;
+        } else {
+            puntajeAcumulado += 10;
         }
 
         updateUI();
@@ -80,19 +78,18 @@ function makeGuess(letter) {
     }
 }
 
-// Función para verificar si el juego ha terminado
 function checkGameOver() {
     if (attempts === 0) {
-        const lossMessageText = `¡Perdiste! La palabra era '${word}'.`;
+        const lossMessageText = `¡Perdiste! La palabra era '${word}'.`.toUpperCase();
         mostrarModal(lossMessageText, true, false);
-        // startGame(); // Comenta o elimina esta línea para que no se reinicie automáticamente
+        disableKeyboard(); // Inhabilitar el teclado al perder
     } else if (getDisplayedWord().toLowerCase() === word.toLowerCase()) {
-        const victoryMessageText = `¡Ganaste! Adivinaste la palabra: ${word}.`;
+        const victoryMessageText = `¡Ganaste! Adivinaste la palabra: ${word}.`.toUpperCase();
         mostrarModal(victoryMessageText, true, true);
+        disableKeyboard(); // Inhabilitar el teclado al ganar
     }
 }
 
-// Función para obtener la palabra oculta con las letras adivinadas
 function getDisplayedWord() {
     let displayedWord = "";
     for (const letter of word) {
@@ -105,7 +102,6 @@ function getDisplayedWord() {
     return displayedWord;
 }
 
-// Función para mostrar el mensaje de victoria y el botón de reinicio
 function mostrarModal(texto, mostrarBotonReinicio, esVictoria) {
     const messageElement = esVictoria ? document.getElementById("victory-message") : document.getElementById("loss-message");
     const messageText = esVictoria ? document.getElementById("victory-text") : document.getElementById("loss-text");
@@ -116,37 +112,34 @@ function mostrarModal(texto, mostrarBotonReinicio, esVictoria) {
 
     if (mostrarBotonReinicio) {
         restartButton.style.display = "block";
-        restartButton.addEventListener("click", restartGame); // Agregamos el evento de reinicio aquí
+        restartButton.addEventListener("click", restartGame);
     } else {
         restartButton.style.display = "none";
     }
-
-    disableKeyboard(); // Llama a la función para deshabilitar el teclado y cambiar el color de fondo de los botones a gris
 }
 
-// Función para deshabilitar el teclado y hacer que los botones queden en gris
 function disableKeyboard() {
     const keyboardButtons = document.querySelectorAll("#keyboard button");
-    keyboardButtons.forEach((button) => {
-        button.disabled = true;
-        button.style.backgroundColor = "#cccccc"; // Cambia el color de fondo a gris
-    });
+    keyboardButtons.forEach((button) => (button.disabled = true));
 }
 
-// Función para reiniciar el juego
+function enableKeyboard() {
+    const keyboardButtons = document.querySelectorAll("#keyboard button");
+    keyboardButtons.forEach((button) => (button.disabled = false));
+}
+
 function restartGame() {
-  startGame();
-  hideMessages(); // Agregamos esta línea para ocultar los mensajes al reiniciar
+    startGame();
+    hideMessages();
+    enableKeyboard(); // Habilitar el teclado al reiniciar el juego
 }
 
-// Función para ocultar los mensajes de victoria y pérdida
 function hideMessages() {
-  const victoryMessage = document.getElementById("victory-message");
-  const lossMessage = document.getElementById("loss-message");
-  
-  victoryMessage.style.display = "none";
-  lossMessage.style.display = "none";
+    const victoryMessage = document.getElementById("victory-message");
+    const lossMessage = document.getElementById("loss-message");
+
+    victoryMessage.style.display = "none";
+    lossMessage.style.display = "none";
 }
 
-// Iniciar el juego cuando se carga la página
 window.onload = startGame;

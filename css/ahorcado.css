@@ -38,7 +38,7 @@ body {
 }
 
 #hangman {
-  max-width: 100%;
+  max-width: 20%;
   border: 1px solid black;
 }
 
@@ -106,7 +106,7 @@ body {
 /* Estilos para el contenedor del juego */
 #game-container {
   text-align: center;
-  margin-top: 30px;
+  margin: 10px;
 }
 
 /* Estilos para la imagen del ahorcado */
@@ -217,4 +217,14 @@ footer {
 /* Estilo para el botón "Reiniciar Juego" al pasar el mouse sobre él */
 #restart-button:hover {
   background-color: #ddd; /* Cambiar el color de fondo al pasar el mouse sobre el botón */
+}
+/* Agrega estas reglas de estilo a tu archivo de estilos (ahorcado.css) */
+#info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#word-container, #guesses-container, #puntaje-container, #hangman-container {
+  margin: 10px 0;
 }
