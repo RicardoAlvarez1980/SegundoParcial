@@ -1,0 +1,147 @@
+/* Responsive para dispositivos de max 600px */
+
+@media (max-width: 600px) {
+   body, header, main, footer {
+     margin: 0;
+     min-width: auto;
+   }
+ 
+   .hero-title {
+    font-size: 35px;
+   }
+
+   #menu-check:not(:checked) ~ nav {
+     display: none;}
+   
+   #menu-check:checked ~ nav {
+     display: block;
+
+   }
+
+   #menu {
+     display: block;
+     color: #fff;
+     font-size: 30px;
+     font-weight: bold;
+     position: absolute;
+     right: 1rem;
+     top: 1rem;
+     transform: translate(-20%, 70%);
+     z-index: 1;
+   }
+
+   #menu:hover{
+     color: black;
+     text-shadow: 0 0 0.5em rgb(249, 248, 252), 0 0 0.5em rgb(255, 119, 250),
+     0 0 0.5em rgb(95, 173, 226);
+     transition: 0.5s;
+   }
+
+   #menu-cerrar {
+     display: none;
+   }
+
+   #menu-check:checked ~ label #menu-abrir {
+     display:none;
+   }
+
+   #menu-check:checked ~ label #menu-cerrar {
+     display:block
+   }
+
+   header nav {
+     border-radius: 0 0 0 10px;
+     border: rgba(255, 255, 255, 0.533) 3px solid;
+     align-items: end;
+     gap: 1rem;
+     position: absolute;
+     bottom: 0;
+     top: 0;
+     right: 0;
+     height: 50%;
+     background: black;
+     padding: 2rem;    
+     box-shadow: 0 0 0 100vmax rgba(0, 0, 0,0.5);
+     transform: translate(0, 28%)
+   }
+
+  .encabezado-nav ul, .encabezado-nav ul li{
+     display: grid;
+     align-items: end;
+     margin-bottom: 0.5rem;
+     margin-left: 0;
+     padding-left: 0;
+   }
+
+
+ }
+ 
+ /* Estilos para dispositivos chicos de 601px hasta 768px */
+ @media (min-width: 601px) and (max-width: 768px) {
+   #menu-check:not(:checked) ~ nav {
+     display: none;}
+   
+   #menu-check:checked ~ nav {
+     display: block;
+   }
+
+   #menu {
+    display: block;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    transform: translate(-20%, 70%);
+    z-index: 1;
+  }
+
+  #menu:hover{
+    color: black;
+    text-shadow: 0 0 0.5em rgb(249, 248, 252), 0 0 0.5em rgb(255, 119, 250),
+    0 0 0.5em rgb(95, 173, 226);
+    transition: 0.5s;
+  }
+
+   #menu-cerrar {
+     display: none;
+   }
+
+   #menu-check:checked ~ label #menu-abrir {
+     display:none;
+   }
+
+   #menu-check:checked ~ label #menu-cerrar {
+     display:block
+   }
+
+   header nav {
+    border-radius: 0 0 0 10px;
+    border: rgba(255, 255, 255, 0.533) 3px solid;
+    align-items: end;
+    gap: 1rem;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    height: 50%;
+    background: black;
+    padding: 2rem;    
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.399);
+    transform: translate(0, 28%)
+  }
+
+ .encabezado-nav ul, .encabezado-nav ul li{
+    display: grid;
+    align-items: end;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+   .hero-title {
+    font-size: 40px;
+   }
+     
+   }
+ 

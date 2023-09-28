@@ -1,0 +1,123 @@
+.contenedorjuegos {
+    display: flex;
+    flex-wrap: wrap;
+    color: aliceblue;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    transform: translateY(-120px);
+    transform-origin: top;
+}
+
+.tateti, .ahorcado, .pasapalabra{
+    background: black;
+    float: left;
+    width: 25%;
+    min-width: 300px;
+    margin: 2rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.tateti h2, .ahorcado h2, .pasapalabra h2{
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 0;
+    padding: 1rem;
+
+}
+
+.tateti img, .ahorcado img, .pasapalabra img{
+    width: 75%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2rem;
+    opacity: 0.25;
+}
+
+.tateti p, .ahorcado p, .pasapalabra p{
+ margin: 2rem;
+ margin-bottom: 1rem;
+ font-family: 'Roboto', sans-serif;
+ font-size: 0.9rem;
+}
+
+.tateti {
+    border-radius: 2rem;
+    border: rgb(200, 43, 181) 3px solid;
+}
+
+.tateti:hover h2 {
+    background: rgb(200, 43, 181);
+    transition: 0.5s;
+}
+.tateti:hover img {
+    scale: 1.1;
+    opacity: 1;
+    box-shadow: 0 0 0.5em rgb(200, 43, 181) ;
+    transition: 0.5s;
+}
+
+.ahorcado {
+    border-radius: 2rem;
+    border: rgb(43, 176, 200) 3px solid;
+}
+
+.ahorcado:hover h2 {
+    background: rgb(43, 176, 200);
+    transition: 0.5s;
+}
+.ahorcado:hover img {
+    scale: 1.1;
+    opacity: 1;
+    box-shadow: 0 0 0.5em rgb(43, 176, 200) ;
+    transition: 0.5s;
+}
+
+.pasapalabra {
+    border-radius: 2rem;
+    border: rgb(43, 200, 43) 3px solid;
+}
+
+.pasapalabra:hover h2 {
+    background: rgb(43, 200, 43);
+    transition: 0.5s;
+}
+.pasapalabra:hover img {
+    scale: 1.1;
+    opacity: 1;
+    box-shadow: 0 0 0.5em rgb(43, 200, 43) ;
+    transition: 0.5s;
+}
+.botonjugar a{
+ text-decoration: none;
+ color: inherit;
+}
+.botonjugar {
+   font-family: 'Press Start 2P', cursive;
+   color: rgb(228, 215, 28);
+   width: 30%;
+   margin: auto;
+   margin-bottom: 2rem;
+   border-radius: 5px;
+   cursor: pointer;
+   
+}
+.botonjugar:hover {
+    scale: 1.1;
+    color: rgb(228, 71, 28);
+    animation: saludo 2s ease infinite;
+    transition: 0.7s;
+}
+@keyframes saludo {
+    0%, 100% {
+
+        transform: rotate(0deg); /* Estado inicial y final: sin rotación */
+    }
+    25% {
+        transform: rotate(10deg); /* Rotación positiva a 15 grados */
+    }
+    75% {
+        transform: rotate(-10deg); /* Rotación negativa a -15 grados */
+    }
+}

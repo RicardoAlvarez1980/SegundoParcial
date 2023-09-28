@@ -1,0 +1,31 @@
+html {
+    font-size: 1rem;
+    height: 100%;
+  }
+  
+  body, header, main, footer {
+    min-height: 50px;
+    margin: 0;
+    min-width: 400px;
+  }
+
+  
+  body {
+    margin-top: auto;
+    background-color: black;
+  }
+  
+  main {
+    min-height: 200px;
+    overflow: auto;
+  }
+  
+
+  #menu, #menu-check {
+    display: none;
+  }
+
+
+
+
+

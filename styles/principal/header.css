@@ -1,0 +1,67 @@
+header {
+    display: block;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 15%, rgba(57,4,77,1) 31%, rgba(116,9,121,1) 58%, rgba(0,151,255,1) 100%);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 0 0.5em rgba(249, 248, 252, 0.629), 0 0 0.5em rgba(95, 174, 226, 0.748) ;
+    transform: translateY(-35px);
+    transform-origin: top;
+  }
+
+#imagenlogo {
+    width: 150px;
+}
+
+
+.encabezado-logo {
+    width: auto;
+    display:inline-block;
+    transform: translate(20%, 30%);
+
+}
+.encabezado-nav {
+    left:auto;
+    top: auto;
+    width: auto;
+    display: inline-block;
+    margin: 0.5rem 0  0.5rem 5rem;
+}
+
+.encabezado-nav ul {
+    list-style: none;
+}
+
+.encabezado-nav li {
+    float: left;
+    text-align: center;
+    margin: 0 2rem 0 2rem;
+    
+}
+
+.encabezado-nav  a {
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    color: rgb(241, 241, 241);
+    letter-spacing: 1px;
+    
+    
+    
+
+}
+
+.encabezado-nav  a:hover{
+    text-shadow: 0 0 0.5em rgb(249, 248, 252), 0 0 0.5em rgb(255, 119, 250),
+		0 0 0.5em rgb(95, 173, 226);
+    scale: 1.1;
+    transition: 0.5s;
+    color: rgb(4, 4, 4);
+    
+}
+
+
+.encabezado-nav li a {
+    font-size: 0.8rem;
+    background: transparent;   
+}

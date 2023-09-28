@@ -1,0 +1,30 @@
+footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    bottom: 0;
+  }
+  
+  footer div {
+    display: inline-block;
+    margin: auto;
+    margin-top: 0;
+    padding-top: 0;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 15%, rgba(57,4,77,1) 31%, rgba(116,9,121,1) 58%, rgba(0,151,255,1) 100%);
+    color: white;
+  }
+  
+  footer div img {
+    width: 2rem;
+    margin: 1rem;
+  }
+  
+  footer p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    
+  }
+
