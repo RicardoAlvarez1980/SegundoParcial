@@ -26,7 +26,7 @@
 </head>
 
 <!-- Cuerpo principal de la página -->
-<body>
+<body id="tateti">
     <!-- Encabezado de la página (logo y menu de navegación) -->
  
         <header> 
@@ -52,6 +52,7 @@
    
     
         <main>
+            <div id="tablero">
             <div id="contenedorGrilla">
                 <div class="cuadrado arriba"></div>
                 <div class="cuadrado arriba medio"></div>
@@ -63,7 +64,7 @@
                 <div class="cuadrado abajo medio"></div>
                 <div class="cuadrado abajo"></div>
             </div>
-    
+            </div>
             <aside>
                 <!-- Elemento para mostrar el puntaje -->
                 <div id="puntaje-container">
@@ -79,14 +80,12 @@
                     <span id="ficha-actual">✖</span>
                 </div>
             </aside>
+           
         </main>
         <dialog type="modal">
             <h2></h2>
             <button>Reiniciar</button>
         </dialog>
-        <footer>
-            <p>&copy; 2023 Página de Entretenimiento</p>
-        </footer>
         <script src="../js/tateti.js"></script> <!-- Archivo JavaScript específico de Tateti -->
 
     <!-- Pie de página, copyright, etc -->

@@ -1,5 +1,5 @@
 /* Estilos para tateti.html */
-body {
+#tateti {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,7 +7,11 @@ body {
     flex-direction: column;
     min-height: 100vh;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    background: linear-gradient(135deg, #11068e, #388E3C);
+}
+
+#tablero {
+    max-height: 26%;
 }
 
 main {
@@ -16,6 +20,7 @@ main {
     /* El main ocupa todo el espacio disponible */
     justify-content: center; /* Centrar el contenido horizontalmente */
     align-items: center; /* Centrar el contenido verticalmente */
+    
 }
 
 #game-container {
@@ -23,8 +28,14 @@ main {
     padding: 20px;
     border: 1px solid #ccc; /* Agrega un borde al contenedor del juego */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra al contenedor */
-}
 
+}
+#contenedorGrilla{
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    justify-content: center;
+    background-color: aquamarine;
+    }
 
 /* Estilos para hacer la página responsiva */
 @media screen and (max-width: 768px) {
@@ -51,16 +62,13 @@ h1{
     color: var(--color-primario);
 }
 
-#contenedorGrilla{
-    display: grid;
-    grid-template-columns: repeat(3, 0fr);
-    justify-content: center;
-}
+
 
 .cuadrado{
     color: var(--color-primario);
-    height: 200px;
-    width: 200px;
+    overflow: 9rem;
+    height: 9rem;
+    width: 9rem;
     display: flex;
     align-items: center;
     justify-content: center;
