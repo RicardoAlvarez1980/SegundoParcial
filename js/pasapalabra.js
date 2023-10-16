@@ -273,7 +273,9 @@ function controlarRespuesta(txtRespuesta){
 var pasar = document.getElementById("pasar");
 pasar.addEventListener("click", function(event) {
   var letra =  bd_juego[numPreguntaActual].id;
-  document.getElementById(letra).classList.remove("pregunta-actual");
+
+  // Agregar la clase 'pasada' al círculo correspondiente
+  document.getElementById(letra).classList.add("pasada");
 
   cargarPregunta();
 });
@@ -320,6 +322,7 @@ recomenzar.addEventListener("click", function(event) {
     circulos[i].classList.remove("bien-respondida");
     circulos[i].classList.remove("mal-respondida");
     circulos[i].classList.remove("pregunta-actual");
+    circulos[i].classList.remove("pasada");
   }
 
   document.getElementById("pantalla-final").style.display = "none";
