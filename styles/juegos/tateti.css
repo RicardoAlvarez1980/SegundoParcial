@@ -1,22 +1,14 @@
 /* Estilos para tateti.html */
-#tateti {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    background: linear-gradient(135deg, #11068e, #388E3C);
-}
-
-#tablero {
-    max-height: 26%;
-}
-
+body {
+    /* Configuración de la imagen de fondo */
+    background-image: url(../../Assets/tateti/rm222batch5-mind-09.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+ 
 main {
     display: flex;
-    flex: 1;
     /* El main ocupa todo el espacio disponible */
     justify-content: center; /* Centrar el contenido horizontalmente */
     align-items: center; /* Centrar el contenido verticalmente */
@@ -26,7 +18,7 @@ main {
 #game-container {
     background: linear-gradient(135deg, #4CAF50, #388E3C); /* Cambia el color de fondo del juego */
     padding: 20px;
-    border: 1px solid #ccc; /* Agrega un borde al contenedor del juego */
+    border: 1px solid #f3ecec; /* Agrega un borde al contenedor del juego */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra al contenedor */
 
 }
@@ -34,7 +26,11 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 0fr);
     justify-content: center;
-    background-color: aquamarine;
+    background-color: #d8eff5;
+    height: fit-content;
+    margin: 0;
+    padding: auto;
+    overflow: hidden;
     }
 
 /* Estilos para hacer la página responsiva */
@@ -48,11 +44,6 @@ main {
     --color-primario: rgb(28, 0, 34);
     --line-style: 10px solid var(--color-primario);
     --font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-body{
-    background-color: rgb(214, 214, 214);
-    user-select: none;
 }
 
 h1{
@@ -91,7 +82,7 @@ h1{
 }
 
 .ganador{
-    background-color: rgb(79, 122, 79);
+    background-color: rgb(249, 198, 31);
 }
 
 dialog{
@@ -116,63 +107,55 @@ dialog button{
     padding: 1rem;
 }
 
-#puntajes {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
-    margin-right: 20px;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-}
+
 
 /* Estilos para el puntaje */
 #puntaje-container {
     position: absolute;
-    left: 20px; /* Ajusta la posición izquierda según tus preferencias */
-    top: 250px; /* Ajusta la posición superior según tus preferencias */
-    padding: 10px;
-    background: linear-gradient(135deg, #4CAF50, #388E3C);
-    border: 7px solid #4CAF50;
-    border-radius: 7px;
-    font-family: Arial, sans-serif; 
-    font-size: 2rem; 
-    color: white;
+    left: 5%; 
+    top: 20%; 
+    min-width: 15%;
+    padding: 1rem;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 15%, rgba(57,4,77,1), rgba(116,9,121,1));
+    border-radius: 10% 0;
+    font-family: 'Press Start 2P', cursive; 
+    font-size: 0.8rem; 
+    color: aliceblue;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    font-weight: bolder;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    box-shadow: 0 0 0.2em rgba(249, 248, 252, 0.629), 0 0 0.5em rgba(95, 174, 226, 0.748) ;
   }
   
-  #puntaje-container p {
-    margin: 0;
-    padding: 5px;
-  }
 
   /* Estilos para el indicador de jugador */
 .jugador-indicador {
-    font-family: Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 250px;
-    right: 20px;
-    padding: 7px;
+    top: 35%;
+    left: 5%;
+    padding: 1rem;
+    min-width: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: aliceblue;
+    background: linear-gradient(90deg, rgba(2,0,36,1), rgb(14, 111, 143));
+    border-radius: 10% 0;
+    font-size: 0.8rem; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    border: 7px solid #4CAF50;
-    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    margin: 0;
+    box-shadow: 0 0 0.2em rgba(249, 248, 252, 0.629), 0 0 0.5em rgba(95, 174, 226, 0.748) ;
 }
 
-#jugador-actual, #turno-texto, #ficha-texto, #ficha-actual {
-    font-family: Arial, sans-serif;
-    color: white;
-    font-size: 1.5rem;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+.reglastateti {
+    position: absolute;
+    top: 10%;
+    float: left;
+    color: aliceblue;
+    margin: 2rem;
+    text-align: center;
+}
+.reglastateti h2 {
+    font-family:  'Press Start 2P', cursive;
+
 }

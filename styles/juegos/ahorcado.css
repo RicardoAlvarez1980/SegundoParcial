@@ -1,37 +1,21 @@
 /* Estilos para la página */
 body {
-  background: linear-gradient(135deg, #4CAF50, #388E3C);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-}
-
-header {
-  background-image: url('../img/header.jpg');
+  /* Configuración de la imagen de fondo */
+  background-image: url(../../Assets/tateti/rm222batch5-mind-09.jpg);
   background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  width: 100%;
-}
-
-main {
-  box-sizing: border-box;
- 
-  /* El main ocupa todo el espacio disponible */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .container {
+  display: inline-flex;
   max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  height: fit-content;
 }
 
 #game-status{
+  float: left;
   margin: 10px;
   padding: 10px;
   border: 2px solid #007bff;
@@ -64,12 +48,13 @@ main {
 }
 
 #hangman {
-  max-width: 20%;
+  padding: 0;
+  max-width: 70%;
   border: 1px solid black;
 }
 
 #keyboard {
-  display: flex;
+  display: inline-block;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
@@ -78,21 +63,26 @@ main {
 }
 
 #keyboard button {
-  width: 40px;
-  height: 40px;
-  border: none;
-  background-color: #007bff;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px aliceblue solid;
+  background-color: #a200ff;
   color: #fff;
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 #keyboard button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+#keyboard button:hover {
+  background-color: #5eaee7;
+  transition: 0.2s;
+}
+
 
 /* Estilos para el mensaje de victoria y pérdida */
 #victory-message,
@@ -137,7 +127,7 @@ main {
 
 /* Estilos para la imagen del ahorcado */
 #hangman-container {
-  display: flex;
+  float: left;
   justify-content: center;
   margin: 0;
   padding: 0;
@@ -145,18 +135,6 @@ main {
 
 .inicio {
   font-size: 3em;
-}
-
-footer {
-  background-image: url('../img/header.jpg');
-  background-size: cover;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  width: 100%;
-  /* Fijar el footer en la parte inferior de la ventana */
-  position: fixed;
-  bottom: 0;
 }
 
 
@@ -222,8 +200,4 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#word-container, #guesses-container, #puntaje-container, #hangman-container {
-  margin: 10px 0;
 }

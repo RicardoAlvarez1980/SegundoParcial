@@ -29,18 +29,13 @@
 
 .tateti img, .ahorcado img, .pasapalabra img{
     width: 75%;
-    height: 200px;
+    height: 150px;
     object-fit: cover;
     border-radius: 2rem;
     opacity: 0.25;
 }
 
-.tateti p, .ahorcado p, .pasapalabra p{
- margin: 2rem;
- margin-bottom: 1rem;
- font-family: 'Roboto', sans-serif;
- font-size: 0.9rem;
-}
+
 
 .tateti {
     border-radius: 2rem;
@@ -98,6 +93,7 @@
    color: rgb(228, 215, 28);
    width: 30%;
    margin: auto;
+   margin-top: 1rem;
    margin-bottom: 2rem;
    border-radius: 5px;
    cursor: pointer;

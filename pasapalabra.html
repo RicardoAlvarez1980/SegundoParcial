@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasapalabra</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/principal/style.css">
+    <link rel="stylesheet" href="styles/juegos/pasapalabra.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Icono del navegador -->
+    <link rel="shortcut icon" href="imagenes/icononav.ico" type="image/x-icon">   
+</head>
+
+<!-- Cuerpo principal de la página -->
+<body>
+    <!-- Encabezado de la página (logo y menu de navegación) -->
+ 
+        <header> 
+        <div class="encabezado-logo">
+            <a href="index.html"><img id="imagenlogo" src="Assets/principal/logojuegos.png" alt="logoprincipal"></a>
+        </div> 
+        <input type="checkbox" id="menu-check">
+            <label id="menu" for="menu-check">
+                <span id="menu-abrir">&#9776;</span>
+                <span id="menu-cerrar">&#9776;</span>
+            </label>
+        <nav class="encabezado-nav">
+    
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+        </nav>
+        </header>
+    <!-- Principal del juego Pasapalabra -->
+    <section id="pantalla-inicial">
+        <h1>PASAPALABRA</h1>
+        <p>¡Bienvenidos al emocionante juego de Pasapalabra en Game Center! Prepárate para poner a prueba tus conocimientos en el fascinante mundo de la informática, la programación y la tecnología. En este desafiante rosco, te enfrentarás a una variedad de preguntas diseñadas para poner a prueba tu comprensión de conceptos clave, términos técnicos y avances recientes en el campo de la tecnología.
+
+            Desde el software hasta el hardware, desde los lenguajes de programación hasta las últimas tendencias en la industria tecnológica, cada pregunta te desafiará a demostrar tu experiencia y tu dominio en este apasionante campo en constante evolución.
+            
+            ¡Demuestra tus habilidades y conocimientos mientras te sumerges en el apasionante mundo de la informática y la tecnología! ¿Estás listo para aceptar el reto y convertirte en el maestro del Pasapalabra tecnológico? ¡Que comience la aventura del conocimiento!</p>
+        <button id="comenzar">COMENZAR JUEGO</button>
+    </section>
+    <section id="pantalla-juego">
+        <audio id="audioCorrecto">
+            <source src="Assets/pasapalabra/correct-ding.mp3" type="audio/mp3">
+          </audio>
+          <audio id="audioIncorrecto">
+            <source src="Assets/pasapalabra/incorrect-ding.mp3" type="audio/mp3">
+          </audio>
+        <div class="container">
+            <span id="tiempo">180</span>
+        </div>
+    
+        <div class="contendor-pregunta">
+            <span id="letra-pregunta">Z</span>
+            <h2 id="pregunta">Pregunta...</h2>
+            <input type="text" id="respuesta">
+            <div class="botones">
+                <button id="responder">Responder</button>
+                <button id="pasar">Pasapalabra!</button>
+            </div>
+        </div>
+    </section>
+    <section id="pantalla-final">
+        <h1>Resumen</h1>
+        <h3>Acertadas</h3>
+        <span id="acertadas">
+            10
+        </span>
+        <h3 id="score">40% de acierto</h3>
+        <button id="recomenzar">Jugar de Nuevo</button>
+    </section>
+
+
+
+    <script src="js/pasapalabra.js"></script>
+    <!-- Pie de página, copyright, etc -->
+    <footer>
+    <div>
+        <a href="https://es-la.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="Assets/principal/faceicon.png" alt=""></a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><img src="Assets/principal/twiticon.png" alt=""></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="Assets/principal/instaicon.png" alt=""></a>
+        <a href="http://github.com" target="_blank" rel="noopener noreferrer"><img src="Assets/principal/giticon.png" alt=""></a>
+    
+        <p>© Copyright 2023, Game Center. Todos los derechos reservados. Parcial Seminario de Programación.</p>
+    </div>
+    </footer>
+</body>
+</html>

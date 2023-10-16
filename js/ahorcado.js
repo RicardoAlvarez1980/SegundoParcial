@@ -41,7 +41,7 @@ function updateUI() {
 
     guessesContainer.textContent = "Letras adivinadas: " + guessedLetters.join(", ");
     attemptsContainer.textContent = "Intentos restantes: " + attempts;
-    hangmanImg.src = "../img/ahorcado/hangman" + hangmanStep + ".png";
+    hangmanImg.src = "../../Assets/ahorcado/hangman" + hangmanStep + ".png";
 
     keyboardContainer.innerHTML = "";
     for (let i = 65; i <= 90; i++) {

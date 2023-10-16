@@ -26,7 +26,7 @@
 </head>
 
 <!-- Cuerpo principal de la página -->
-<body id="tateti">
+<body>
     <!-- Encabezado de la página (logo y menu de navegación) -->
  
         <header> 
@@ -52,7 +52,7 @@
    
     
         <main>
-            <div id="tablero">
+            
             <div id="contenedorGrilla">
                 <div class="cuadrado arriba"></div>
                 <div class="cuadrado arriba medio"></div>
@@ -64,20 +64,24 @@
                 <div class="cuadrado abajo medio"></div>
                 <div class="cuadrado abajo"></div>
             </div>
-            </div>
+            
             <aside>
                 <!-- Elemento para mostrar el puntaje -->
                 <div id="puntaje-container">
-                    <p id="puntaje-jugador1">Puntaje Jugador 1: 0</p>
-                    <p id="puntaje-jugador2">Puntaje Computadora: 0</p>
+                    <p id="puntaje-jugador1">Jugador 1: 0</p>
+                    <p id="puntaje-jugador2">Computadora: 0</p>
                 </div>
                 <!-- Agregar el siguiente div en la esquina superior derecha -->
                 <div class="jugador-indicador">
                     <span id="turno-texto">Turno de:</span>
-                    <span id="jugador-actual">Jugador 1</span>
+                    <span id="jugador-actual">Jugador</span>
                     <br>
                     <span id="ficha-texto">Ficha:</span>
                     <span id="ficha-actual">✖</span>
+                </div>
+                <div class="reglastateti">
+                    <h2>TA-TE-TI</h2>
+                    <p>El tatetí es un juego de estrategia en el que dos jugadores compiten por completar una fila, columna o diagonal con sus fichas antes que su oponente. El tablero consta de una cuadrícula de 3x3 casillas. Uno de los jugadores utiliza fichas con una "X" y el otro con un círculo "O". Por turnos, los jugadores colocan sus fichas en una casilla vacía. El objetivo es alinear tres fichas propias en línea horizontal, vertical o diagonal. Si el tablero se llena sin que ningún jugador logre formar una línea de tres fichas, el juego termina en empate.</p>
                 </div>
             </aside>
            
