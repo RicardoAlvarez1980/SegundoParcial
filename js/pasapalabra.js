@@ -237,13 +237,13 @@ botonResponder.addEventListener("click", function(event) {
 
 //Función que controla la respuesta
 function controlarRespuesta(txtRespuesta){
+  //controlo si la respuesta es correcta
   if(txtRespuesta == bd_juego[numPreguntaActual].respuesta){
     cantidadAcertadas++;
 
     // Reproducir sonido de respuesta correcta
     var audioCorrecto = document.getElementById("audioCorrecto");
-    audioCorrecto.play()
-
+    audioCorrecto.play();
     //actualizo el estado de las pregunta actual a 1, indicando que ya esta respondida
     estadoPreguntas[numPreguntaActual] = 1;
     var letra =  bd_juego[numPreguntaActual].id;
@@ -252,9 +252,6 @@ function controlarRespuesta(txtRespuesta){
 
   }else{
     //alert("respuesta incorrecta")
-        // Reproducir sonido de respuesta incorrecta
-        var audioIncorrecto = document.getElementById("audioIncorrecto");
-        audioIncorrecto.play()
     //actualizo el estado de las pregunta actual a 1, indicando que ya esta respondida
     estadoPreguntas[numPreguntaActual] = 1;
     var letra =  bd_juego[numPreguntaActual].id;
@@ -269,13 +266,12 @@ function controlarRespuesta(txtRespuesta){
 }
 
 
+
 //botón para pasar de pregunta sin contestar
 var pasar = document.getElementById("pasar");
 pasar.addEventListener("click", function(event) {
   var letra =  bd_juego[numPreguntaActual].id;
-
-  // Agregar la clase 'pasada' al círculo correspondiente
-  document.getElementById(letra).classList.add("pasada");
+  document.getElementById(letra).classList.remove("pregunta-actual");
 
   cargarPregunta();
 });
@@ -298,11 +294,10 @@ function largarTiempo(){
   }, 1000);
 }
 
-//muestro la pantalla final
+//muestro la pantlla final
 function mostrarPantallaFinal(){
-  const porcentajeAcierto = (cantidadAcertadas / TOTAL_PREGUNTAS) * 100;
   document.getElementById("acertadas").textContent = cantidadAcertadas;
-  document.getElementById("score").textContent = porcentajeAcierto.toFixed(2) + "% de acierto";
+  document.getElementById("score").textContent = (cantidadAcertadas*100)/10 + "% de acierto";
   document.getElementById("pantalla-juego").style.display =  "none";
   document.getElementById("pantalla-final").style.display =  "block";
 }
@@ -314,15 +309,13 @@ recomenzar.addEventListener("click", function(event) {
   timeLeft = TIEMPO_DEL_JUEGO;
   timer.innerText = timeLeft;
   cantidadAcertadas = 0;
-  estadoPreguntas = new Array(TOTAL_PREGUNTAS).fill(0); // Reiniciar el estado de las preguntas
+  estadoPreguntas = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,];
 
-  // Limpia las clases de los círculos
+  //quito las clases de los circulos
   var circulos = document.getElementsByClassName("circle");
-  for (var i = 0; i < circulos.length; i++) {
+  for(i=0;i<circulos.length;i++){
     circulos[i].classList.remove("bien-respondida");
     circulos[i].classList.remove("mal-respondida");
-    circulos[i].classList.remove("pregunta-actual");
-    circulos[i].classList.remove("pasada");
   }
 
   document.getElementById("pantalla-final").style.display = "none";

@@ -87,10 +87,7 @@ body{
     color: #a79797;
 }
 
-.pasada {
-    background-color: #e0c34f; /* Cambia el color según tus preferencias */
-    color: #000; /* Cambia el color del texto si es necesario */
-}
+
 
 .contendor-pregunta{
     position: fixed;
