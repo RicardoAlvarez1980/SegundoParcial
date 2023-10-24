@@ -113,9 +113,9 @@ body{
     color: #000;
     font-weight: bold;
     padding: 5px 15px;
-    font-size: 20px; /* Ajusta el tamaño de la fuente según tus preferencias */
+    font-size: 30px; /* Ajusta el tamaño de la fuente según tus preferencias */
     position: relative;
-    bottom: 35px; /*Ajusta la posición vertical según tus preferencias */
+    bottom: 45px; /*Ajusta la posición vertical según tus preferencias */
     background-color: #fff;
 }
 
