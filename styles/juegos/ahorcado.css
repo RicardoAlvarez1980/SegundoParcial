@@ -7,21 +7,72 @@ body {
   background-attachment: fixed;
 }
 
-.container {
-  display: inline-flex;
-  max-width: 100%;
-  margin: 0 auto;
-  height: fit-content;
+#pantalla-inicial{
+  display: block;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  background:rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 20px; 
+}
+#pantalla-inicial h1{
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+  color:#0a597a;
 }
 
-#game-status{
-  float: left;
-  margin: 10px;
-  padding: 10px;
-  border: 2px solid #007bff;
-  border-radius: 22px;
-  max-width: fit-content;
+#pantalla-inicial p{
+  font-weight: bolder;
+  color:#080808;
+  margin: auto;
+  padding-bottom: 10px;
 }
+
+#comenzar{
+  background-color: #c466fc;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 0 20px;
+  border-radius: 30px;
+  border-bottom: 4px solid #4b0872;
+}
+
+#comenzar:hover{
+  border-bottom: 4px solid transparent;
+  background-color: #7705b9;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px); /* Ajusta el valor en función del tamaño de tu footer */
+  margin-bottom: 100px; /* Ajusta el valor en función del tamaño de tu footer */
+}
+
+#game-status {
+  /* Mantén el estilo original del game-status */
+  float: left;
+  margin: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 15%, rgba(57,4,77,1), rgba(116,9,121,1));
+  box-shadow: 0 0 0.2em rgba(249, 248, 252, 0.629), 0 0 0.5em rgba(95, 174, 226, 0.748) ;
+  border-radius: 10% 0;
+  font-size: 0.8rem; 
+  color: aliceblue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  width: 30%;
+  max-width: 30%; /* Ajusta el ancho máximo en porcentaje según sea necesario */
+  overflow: auto; /* Añade un desplazamiento horizontal en caso de que el contenido supere el ancho máximo */
+}
+
 /* Estilos para el tablero del juego */
 #hangman-board {
   background-color: #fff;
@@ -29,6 +80,13 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 20px;
+  margin-top: 20px;
+}
+
+#hangman-container{
+  float: left;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
 }
 
@@ -51,13 +109,15 @@ body {
   padding: 0;
   max-width: 70%;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 #keyboard {
-  display: inline-block;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
   font-size: 24px;
   margin-top: 20px;
 }
@@ -75,15 +135,22 @@ body {
 
 #keyboard button:disabled {
   background-color: #ccc;
+}
+#keyboard button:disabled:hover {
+  background-color: #ccc;
+  color: #fff;
   cursor: not-allowed;
 }
 
 #keyboard button:hover {
   background-color: #5eaee7;
+  color: #a200ff;
+  font-weight: bolder;
   transition: 0.2s;
 }
-
-
+#keyboard button {
+  margin: 5px; /* Ajusta el margen entre los botones del teclado */
+}
 /* Estilos para el mensaje de victoria y pérdida */
 #victory-message,
 #loss-message {
@@ -121,18 +188,18 @@ body {
 
 /* Estilos para el contenedor del juego */
 #game-container {
-  text-align: center;
-  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
-
 /* Estilos para la imagen del ahorcado */
 #hangman-container {
-  float: left;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px; /* Ajusta el margen derecho para separarlo del teclado */
 }
-
 .inicio {
   font-size: 3em;
 }

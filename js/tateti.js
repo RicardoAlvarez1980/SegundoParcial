@@ -146,4 +146,14 @@ const juegoTresEnLinea = (function () {
       reiniciarJuego: reiniciarJuego,
     };
   })();
-  
+  document.addEventListener("DOMContentLoaded", function() {
+    const pantallaInicial = document.getElementById("pantalla-inicial");
+    const botonComenzar = document.getElementById("comenzar");
+    const principaljuego = document.getElementById("principaljuego");
+
+    botonComenzar.addEventListener("click", function() {
+        pantallaInicial.style.display = "none"; // Oculta la pantalla inicial al presionar el botón "Comenzar Juego"
+        principaljuego.style.display = "block"; // Muestra el contenedor del juego al presionar el botón "Comenzar Juego"
+        startGame(); // Inicia el juego al presionar el botón "Comenzar Juego"
+    });
+});

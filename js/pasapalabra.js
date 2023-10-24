@@ -96,43 +96,43 @@ const bd_juego = [
   },
   {
     id:'S',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:" Conjunto de reglas que definen la estructura de un lenguaje de programación, y que determinan cómo se deben escribir las instrucciones y comandos.",
+    respuesta:"sintaxis"
   },
   {
     id:'T',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:"Proceso de verificación y validación de un software para garantizar su funcionamiento y calidad.",
+    respuesta:"testing"
   },
   {
     id:'U',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:"Dirección que se utiliza para acceder a un recurso en internet, como una página web o un archivo (abreviación).",
+    respuesta:"url"
   },
   {
     id:'V',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:"Nombre simbólico que se utiliza para almacenar y representar un valor o una referencia en un programa.",
+    respuesta:"variable"
   },
   {
     id:'W',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:"Persona encargada de la creación, mantenimiento y gestión de un sitio web, incluyendo aspectos técnicos y de contenido.",
+    respuesta:"webmaster"
   },
   {
     id:'X',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:"Lenguaje de marcado que se utiliza para el almacenamiento y el intercambio de datos de manera legible tanto para humanos como para máquinas.",
+    respuesta:"xml"
   },
   {
     id:'Y',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:"Plataforma de video en línea propiedad de Google, que permite a los usuarios subir, ver y compartir videos.",
+    respuesta:"youtube"
   },
   {
     id:'Z',
-    pregunta:"Lenguaje de programación con el cual se diseño el sistema operativo Android",
-    respuesta:"java"
+    pregunta:"Plataforma de comunicaciones en línea que ofrece servicios de videoconferencia, reuniones virtuales y mensajería en tiempo real.",
+    respuesta:"zoom"
   },
 ]
 
@@ -183,95 +183,94 @@ for (let i = 1; i <= TOTAL_PREGUNTAS; i++) {
 
 
 //Función que carga la pregunta
-function cargarPregunta(){
+function cargarPregunta() {
   numPreguntaActual++;
-  //controlo si he llegado al final de las preguntas, para comenzar de nuevo
-  if(numPreguntaActual>=TOTAL_PREGUNTAS){
-    numPreguntaActual=0;
+  // controlo si he llegado al final de las preguntas, para comenzar de nuevo
+  if (numPreguntaActual >= TOTAL_PREGUNTAS) {
+      numPreguntaActual = 0;
   }
 
-  if(estadoPreguntas.indexOf(0)>=0){ //Controlo que todavía hallan preguntas por contestar
-    while(estadoPreguntas[numPreguntaActual]==1){
-      numPreguntaActual++;
-      if(numPreguntaActual>=TOTAL_PREGUNTAS){
-        numPreguntaActual=0;
+  if (estadoPreguntas.indexOf(0) >= 0) { // controlo que todavía hayan preguntas por contestar
+      while (estadoPreguntas[numPreguntaActual] !== 0) {
+          numPreguntaActual++;
+          if (numPreguntaActual >= TOTAL_PREGUNTAS) {
+              numPreguntaActual = 0;
+          }
       }
-    }
-  
-    document.getElementById("letra-pregunta").textContent = bd_juego[numPreguntaActual].id
-    document.getElementById("pregunta").textContent = bd_juego[numPreguntaActual].pregunta
-    var letra =  bd_juego[numPreguntaActual].id;
-    document.getElementById(letra).classList.add("pregunta-actual");
-  }
-  else{
-    clearInterval(countdown);
-    mostrarPantallaFinal();
-  }
 
+      document.getElementById("letra-pregunta").textContent = bd_juego[numPreguntaActual].id
+      document.getElementById("pregunta").textContent = bd_juego[numPreguntaActual].pregunta
+      var letra = bd_juego[numPreguntaActual].id;
+      if (estadoPreguntas[numPreguntaActual] === 2) {
+          document.getElementById(letra).classList.add("pregunta-pasada");
+      } else {
+          document.getElementById(letra).classList.add("pregunta-actual");
+      }
+  } else {
+      clearInterval(countdown);
+      mostrarPantallaFinal();
+  }
 }
 
-//detecto cada vez que hay un cambio de tecla en el input
+// detecto cada vez que hay un cambio de tecla en el input
 var respuesta = document.getElementById("respuesta");
-respuesta.addEventListener("keyup", function(event) {
-  //detecto si la tecla presionada es ENTER
+respuesta.addEventListener("keyup", function (event) {
+  // detecto si la tecla presionada es ENTER
   if (event.keyCode === 13) {
-    if(respuesta.value==""){
-      alert("Debe ingresar un valor!!");
-      return;
-    }
-    //obtengo la respuesta ingresada
-    var txtRespuesta = respuesta.value;
-    controlarRespuesta(txtRespuesta.toLowerCase());
+      if (respuesta.value === "") {
+          alert("Debe ingresar un valor!!");
+          return;
+      }
+      // obtengo la respuesta ingresada
+      var txtRespuesta = respuesta.value;
+      controlarRespuesta(txtRespuesta.toLowerCase());
   }
 });
-//detecto cada vez que se hace clic en el botón de responder
+// detecto cada vez que se hace clic en el botón de responder
 var botonResponder = document.getElementById("responder");
-botonResponder.addEventListener("click", function(event) {
-  if(respuesta.value==""){
-    alert("Debe ingresar un valor!!");
-    return;
+botonResponder.addEventListener("click", function (event) {
+  if (respuesta.value === "") {
+      alert("Debe ingresar un valor!!");
+      return;
   }
   var txtRespuesta = respuesta.value;
   controlarRespuesta(txtRespuesta.toLowerCase());
 });
 
-//Función que controla la respuesta
-function controlarRespuesta(txtRespuesta){
-  //controlo si la respuesta es correcta
-  if(txtRespuesta == bd_juego[numPreguntaActual].respuesta){
+// Función para controlar la respuesta
+function controlarRespuesta(txtRespuesta) {
+  if (txtRespuesta === bd_juego[numPreguntaActual].respuesta) {
     cantidadAcertadas++;
-
     // Reproducir sonido de respuesta correcta
     var audioCorrecto = document.getElementById("audioCorrecto");
     audioCorrecto.play();
-    //actualizo el estado de las pregunta actual a 1, indicando que ya esta respondida
+    // actualizo el estado de las pregunta actual a 1, indicando que ya está respondida
     estadoPreguntas[numPreguntaActual] = 1;
-    var letra =  bd_juego[numPreguntaActual].id;
-    document.getElementById(letra).classList.remove("pregunta-actual");
+    var letra = bd_juego[numPreguntaActual].id;
+    document.getElementById(letra).classList.remove("pregunta-actual", "pregunta-pasada");
     document.getElementById(letra).classList.add("bien-respondida");
-
-  }else{
-    //alert("respuesta incorrecta")
-    //actualizo el estado de las pregunta actual a 1, indicando que ya esta respondida
+  } else {
+    // Reproducir sonido de respuesta incorrecta
+    var audioIncorrecto = document.getElementById("audioIncorrecto");
+    audioIncorrecto.play();
+    // actualizo el estado de las pregunta actual a 1, indicando que ya está respondida
     estadoPreguntas[numPreguntaActual] = 1;
-    var letra =  bd_juego[numPreguntaActual].id;
-    //quito l clase del estilo de pregunta actual
-    document.getElementById(letra).classList.remove("pregunta-actual");
-    //agrego la clase del estilo de pregunta mal respondida
+    var letra = bd_juego[numPreguntaActual].id;
+    // quito la clase del estilo de pregunta actual y pasada
+    document.getElementById(letra).classList.remove("pregunta-actual", "pregunta-pasada");
+    // agrego la clase del estilo de pregunta mal respondida
     document.getElementById(letra).classList.add("mal-respondida");
-
   }
-  respuesta.value="";
+  respuesta.value = "";
   cargarPregunta();
 }
 
-
-
-//botón para pasar de pregunta sin contestar
+// botón para pasar de pregunta sin contestar
 var pasar = document.getElementById("pasar");
-pasar.addEventListener("click", function(event) {
-  var letra =  bd_juego[numPreguntaActual].id;
+pasar.addEventListener("click", function (event) {
+  var letra = bd_juego[numPreguntaActual].id;
   document.getElementById(letra).classList.remove("pregunta-actual");
+  document.getElementById(letra).classList.add("pregunta-pasada");
 
   cargarPregunta();
 });
@@ -295,11 +294,13 @@ function largarTiempo(){
 }
 
 //muestro la pantlla final
-function mostrarPantallaFinal(){
+function mostrarPantallaFinal() {
   document.getElementById("acertadas").textContent = cantidadAcertadas;
-  document.getElementById("score").textContent = (cantidadAcertadas*100)/10 + "% de acierto";
-  document.getElementById("pantalla-juego").style.display =  "none";
-  document.getElementById("pantalla-final").style.display =  "block";
+  // Ajuste del cálculo del porcentaje para asegurarse de que esté dentro del rango del 0% al 100%
+  const porcentajeAcierto = ((cantidadAcertadas * 100) / TOTAL_PREGUNTAS).toFixed(2);
+  document.getElementById("score").textContent = `${porcentajeAcierto}% de acierto`;
+  document.getElementById("pantalla-juego").style.display = "none";
+  document.getElementById("pantalla-final").style.display = "block";
 }
 
 //boton para recomenzar el juego
@@ -316,6 +317,7 @@ recomenzar.addEventListener("click", function(event) {
   for(i=0;i<circulos.length;i++){
     circulos[i].classList.remove("bien-respondida");
     circulos[i].classList.remove("mal-respondida");
+    circulos[i].classList.remove("pregunta-pasada");
   }
 
   document.getElementById("pantalla-final").style.display = "none";

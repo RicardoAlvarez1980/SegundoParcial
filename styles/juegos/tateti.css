@@ -7,11 +7,52 @@ body {
     background-attachment: fixed;
   }
  
-main {
+  #pantalla-inicial{
+    display: block;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    background:rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 20px; 
+  }
+  #pantalla-inicial h1{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    color:#0a597a;
+  }
+  
+  #pantalla-inicial p{
+    font-weight: bolder;
+    color:#080808;
+    margin: auto;
+    padding-bottom: 10px;
+  }
+  
+  #comenzar{
+    background-color: #c466fc;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0 20px;
+    border-radius: 30px;
+    border-bottom: 4px solid #4b0872;
+  }
+  
+  #comenzar:hover{
+    border-bottom: 4px solid transparent;
+    background-color: #7705b9;
+  }
+  
+#principaljuego {
     display: flex;
     /* El main ocupa todo el espacio disponible */
     justify-content: center; /* Centrar el contenido horizontalmente */
     align-items: center; /* Centrar el contenido verticalmente */
+
     
 }
 
@@ -26,7 +67,7 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 0fr);
     justify-content: center;
-    background-color: #d8eff5;
+    
     height: fit-content;
     margin: 0;
     padding: auto;
@@ -56,6 +97,7 @@ h1{
 
 
 .cuadrado{
+    background-color: #d8eff5;
     color: var(--color-primario);
     overflow: 9rem;
     height: 9rem;
