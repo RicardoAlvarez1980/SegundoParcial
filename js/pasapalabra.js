@@ -296,9 +296,18 @@ function largarTiempo(){
 //muestro la pantlla final
 function mostrarPantallaFinal() {
   document.getElementById("acertadas").textContent = cantidadAcertadas;
-  // Ajuste del cálculo del porcentaje para asegurarse de que esté dentro del rango del 0% al 100%
   const porcentajeAcierto = ((cantidadAcertadas * 100) / TOTAL_PREGUNTAS).toFixed(2);
   document.getElementById("score").textContent = `${porcentajeAcierto}% de acierto`;
+
+  // reproduzco sonido de ganador si el porcentaje es mayor o igual a 50, de lo contrario reproduzco sonido de perdedor
+  if (porcentajeAcierto >= 50) {
+    var audioGanador = document.getElementById("audioGanador");
+    audioGanador.play();
+  } else {
+    var audioPerdedor = document.getElementById("audioPerdedor");
+    audioPerdedor.play();
+  }
+
   document.getElementById("pantalla-juego").style.display = "none";
   document.getElementById("pantalla-final").style.display = "block";
 }
