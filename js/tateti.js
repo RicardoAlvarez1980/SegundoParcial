@@ -1,3 +1,24 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const pantallaInicial = document.getElementById("pantalla-inicial");
+  const botonComenzar = document.getElementById("comenzar");
+  const principaljuego = document.getElementById("principaljuego");
+  const musicaFondo = document.getElementById("musicaFondo");
+
+  // Agrega un evento de clic al documento para iniciar la reproducción de la música
+  document.addEventListener("click", function() {
+      musicaFondo.play(); // Inicia la reproducción de la música al hacer clic en cualquier lugar de la página
+  });
+
+  botonComenzar.addEventListener("click", function() {
+      pantallaInicial.style.display = "none"; // Oculta la pantalla inicial al presionar el botón "Comenzar Juego"
+      principaljuego.style.display = "block"; // Muestra el contenedor del juego al presionar el botón "Comenzar Juego"
+      startGame(); // Inicia el juego al presionar el botón "Comenzar Juego"
+  });
+});
+
+
+
+
 const juegoTresEnLinea = (function () {
     // Caracteres para el tablero
     const x = "✖";
@@ -33,6 +54,11 @@ const juegoTresEnLinea = (function () {
       cuadrado.addEventListener("click", () => {
         if (estadoJuego === "PAUSA" || estadoJuego === "P2") return;
         if (cuadrado.textContent !== "") return;
+    
+        // Reproducir sonido de X
+        const sonidoX = document.getElementById("sonidoX");
+        sonidoX.play();
+    
         cuadrado.textContent = x;
         const posicionGanadora = revisarSiHayGanador();
   
@@ -85,15 +111,25 @@ const juegoTresEnLinea = (function () {
       posicionesGanadoras.forEach((posicion) => cuadrados[posicion].classList.toggle("ganador", true));
   
       if (jugador === "P1") {
-        puntajeJugador1 += 3;
-        puntajeElement1.textContent = `Puntaje Jugador 1: ${puntajeJugador1}`;
-        mostrarModal("Gano el jugador 1");
+          puntajeJugador1 += 3;
+          puntajeElement1.textContent = `Puntaje Jugador 1: ${puntajeJugador1}`;
+  
+          // Reproducir sonido de victoria
+          const sonidoGanar = document.getElementById("sonidoGanar");
+          sonidoGanar.play();
+  
+          mostrarModal("Gano el jugador 1");
       } else {
-        puntajeJugador2 += 3;
-        puntajeElement2.textContent = `Puntaje Computadora: ${puntajeJugador2}`;
-        mostrarModal("Gano la computadora");
+          puntajeJugador2 += 3;
+          puntajeElement2.textContent = `Puntaje Computadora: ${puntajeJugador2}`;
+  
+          // Reproducir sonido de perder
+          const sonidoPerder = document.getElementById("sonidoPerder");
+          sonidoPerder.play();
+  
+          mostrarModal("Gano la computadora");
       }
-    }
+  }
   
     function mostrarModal(texto) {
       textoModal.innerText = texto;
@@ -146,14 +182,3 @@ const juegoTresEnLinea = (function () {
       reiniciarJuego: reiniciarJuego,
     };
   })();
-  document.addEventListener("DOMContentLoaded", function() {
-    const pantallaInicial = document.getElementById("pantalla-inicial");
-    const botonComenzar = document.getElementById("comenzar");
-    const principaljuego = document.getElementById("principaljuego");
-
-    botonComenzar.addEventListener("click", function() {
-        pantallaInicial.style.display = "none"; // Oculta la pantalla inicial al presionar el botón "Comenzar Juego"
-        principaljuego.style.display = "block"; // Muestra el contenedor del juego al presionar el botón "Comenzar Juego"
-        startGame(); // Inicia el juego al presionar el botón "Comenzar Juego"
-    });
-});

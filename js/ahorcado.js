@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const pantallaInicial = document.getElementById("pantalla-inicial");
+    const botonComenzar = document.getElementById("comenzar");
+    const principaljuego = document.getElementById("game-container");
+    const musicaFondo = document.getElementById("musicaFondo");
+  
+    // Agrega un evento de clic al documento para iniciar la reproducción de la música
+    document.addEventListener("click", function() {
+        musicaFondo.play(); // Inicia la reproducción de la música al hacer clic en cualquier lugar de la página
+    });
+  
+    botonComenzar.addEventListener("click", function() {
+        pantallaInicial.style.display = "none"; // Oculta la pantalla inicial al presionar el botón "Comenzar Juego"
+        principaljuego.style.display = "block"; // Muestra el contenedor del juego al presionar el botón "Comenzar Juego"
+        startGame(); // Inicia el juego al presionar el botón "Comenzar Juego"
+    });
+  });
+
+
+
 // Variables
 const words = ["html", "css", "web", "programacion", "javascript"];
 let word = "";
@@ -91,8 +111,10 @@ function makeGuess(letter) {
         if (!word.toLowerCase().includes(letter.toLowerCase())) {
             attempts--;
             hangmanStep++;
+            playSound("soundIncorrect");
         } else {
             puntajeAcumulado += 10;
+            playSound("soundCorrect");
         }
 
         updateUI();
@@ -104,15 +126,22 @@ function makeGuess(letter) {
     }
 }
 
+function playSound(soundId) {
+    const sound = document.getElementById(soundId);
+    sound.play();
+}
+
 // Verificar si el juego ha terminado
 function checkGameOver() {
     if (attempts === 0) {
         const lossMessageText = `¡Perdiste! La palabra era '${word}'.`.toUpperCase();
         mostrarModal(lossMessageText, true, false);
+        playSound("soundLose");
         disableKeyboard();
     } else if (getDisplayedWord().toLowerCase() === word.toLowerCase()) {
         const victoryMessageText = `¡Ganaste! Adivinaste la palabra: ${word}.`.toUpperCase();
         mostrarModal(victoryMessageText, true, true);
+        playSound("soundWin");
         disableKeyboard();
     }
 }
@@ -174,14 +203,3 @@ function hideMessages() {
     victoryMessage.style.display = "none";
     lossMessage.style.display = "none";
 }
-document.addEventListener("DOMContentLoaded", function() {
-    const pantallaInicial = document.getElementById("pantalla-inicial");
-    const botonComenzar = document.getElementById("comenzar");
-    const gameContainer = document.getElementById("game-container");
-
-    botonComenzar.addEventListener("click", function() {
-        pantallaInicial.style.display = "none"; // Oculta la pantalla inicial al presionar el botón "Comenzar Juego"
-        gameContainer.style.display = "block"; // Muestra el contenedor del juego al presionar el botón "Comenzar Juego"
-        startGame(); // Inicia el juego al presionar el botón "Comenzar Juego"
-    });
-});

@@ -1,0 +1,44 @@
+body {
+    /* Configuración de la imagen de fondo */
+    background-image: url(../../Assets/tateti/rm222batch5-mind-09.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+.formulario {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: aliceblue;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 15%, rgba(57,4,77,1), rgba(116,9,121,1));
+
+}
+.formulario h2 {
+    text-align: center;
+}
+.formulario label, .formulario input, .formulario textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box; /* Añadido para incluir el relleno y el borde en el ancho y la altura */
+    max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+    max-height: 200px; /* Ajusta la altura máxima según tus necesidades */
+    overflow: auto; /* Agrega barras de desplazamiento si el contenido excede el tamaño */
+}
+.formulario button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.formulario button:hover {
+    background-color: #0056b3;
+}
