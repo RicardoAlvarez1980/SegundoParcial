@@ -7,7 +7,6 @@
     <title>Centro de Juegos</title>
     <!-- Estilos -->
     <link rel="stylesheet" href="styles/principal/style.css">
-    <link rel="stylesheet" href="styles/juegos/tateti.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,9 +24,7 @@
     
 </head>
 
-<!-- Cuerpo principal de la página -->
 <body>
-    <!-- Encabezado de la página (logo y menu de navegación) -->
  
         <header> 
         <div class="encabezado-logo">
@@ -49,50 +46,63 @@
         </nav>
         
     </header>
-    <section id="pantalla-inicial">
-        <h1>TA-TE-TI</h1>
-        <p>El tatetí es un juego de estrategia en el que dos jugadores compiten por completar una fila, columna o diagonal con sus fichas antes que su oponente. El tablero consta de una cuadrícula de 3x3 casillas. Uno de los jugadores utiliza fichas con una "X" y el otro con un círculo "O". Por turnos, los jugadores colocan sus fichas en una casilla vacía. El objetivo es alinear tres fichas propias en línea horizontal, vertical o diagonal. Si el tablero se llena sin que ningún jugador logre formar una línea de tres fichas, el juego termina en empate.</p>
-        <button id="comenzar">COMENZAR JUEGO</button>
-    </section>
-    
-        <main id="principaljuego" style="display: none;">
-            
-            <div id="contenedorGrilla">
-                <div class="cuadrado arriba"></div>
-                <div class="cuadrado arriba medio"></div>
-                <div class="cuadrado arriba"></div>
-                <div class="cuadrado"></div>
-                <div class="cuadrado medio"></div>
-                <div class="cuadrado"></div>
-                <div class="cuadrado abajo izquierda"></div>
-                <div class="cuadrado abajo medio"></div>
-                <div class="cuadrado abajo"></div>
+    <!-- Cuerpo principal de la página, aca encontramos todo el contenido principal-->
+    <main>
+        <!-- Hero de la Página principal -->
+        <div class="contacto">
+            <title>Formulario de Contacto</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+                .formulario {
+                    width: 300px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                }
+                .formulario h2 {
+                    text-align: center;
+                }
+                .formulario label, .formulario input, .formulario textarea {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                .formulario input, .formulario textarea {
+                    width: 100%;
+                    padding: 5px;
+                }
+                .formulario button {
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                .formulario button:hover {
+                    background-color: #0056b3;
+                }
+            </style>
+        <body>
+            <div class="formulario">
+                <h2>Formulario de Contacto</h2>
+                <form action="#" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
-            
-            <aside>
-                <!-- Elemento para mostrar el puntaje -->
-                <div id="puntaje-container">
-                    <p id="puntaje-jugador1">Jugador 1: 0</p>
-                    <p id="puntaje-jugador2">Computadora: 0</p>
-                </div>
-                <!-- Agregar el siguiente div en la esquina superior derecha -->
-                <div class="jugador-indicador">
-                    <span id="turno-texto">Turno de:</span>
-                    <span id="jugador-actual">Jugador</span>
-                    <br>
-                    <span id="ficha-texto">Ficha:</span>
-                    <span id="ficha-actual">✖</span>
-                </div>
-
-            </aside>
-           
-        </main>
-        <dialog type="modal">
-            <h2></h2>
-            <button>Reiniciar</button>
-        </dialog>
-        <script src="../js/tateti.js"></script> <!-- Archivo JavaScript específico de Tateti -->
-
+    </main>
+ 
     <!-- Pie de página, copyright, etc -->
     <footer>
     <div>
@@ -106,3 +116,4 @@
     </footer>
 </body>
 </html>
+

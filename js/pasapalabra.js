@@ -151,11 +151,15 @@ var countdown;
 
 //boton comenzar
 var comenzar = document.getElementById("comenzar");
-comenzar.addEventListener("click", function(event) {
+comenzar.addEventListener("click", function (event) {
   document.getElementById("pantalla-inicial").style.display = "none";
   document.getElementById("pantalla-juego").style.display = "block";
   largarTiempo();
   cargarPregunta();
+
+  // reproduzco la música de fondo
+  var audioFondo = document.getElementById("audioFondo");
+  audioFondo.play();
 });
 
 const container = document.querySelector(".container");
