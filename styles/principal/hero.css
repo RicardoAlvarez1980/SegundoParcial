@@ -43,10 +43,10 @@
 }
 
 .right-floating {
-    width: 200px;
+    width: 150px;
     position: absolute;
     bottom: 0;
     right: 0;
     z-index: -1;
-    transform: rotate(-25deg) translate(10%, 0.1%);
+    transform: rotate(-15deg) translate(15%, -10%);
 }
