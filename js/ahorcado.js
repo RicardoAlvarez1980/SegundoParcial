@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function (){
     const pantallaInicial = document.getElementById("pantalla-inicial");
     const botonComenzar = document.getElementById("comenzar");
     const principaljuego = document.getElementById("game-container");
@@ -78,7 +78,7 @@ function updateGuessesContainer() {
 // Actualizar la imagen del ahorcado
 function updateHangmanImage() {
     const hangmanImg = document.getElementById("hangman");
-    hangmanImg.src = "../../Assets/ahorcado/hangman" + hangmanStep + ".png";
+    hangmanImg.src = "./Assets/ahorcado/hangman" + hangmanStep + ".png";
 }
 
 // Actualizar el teclado

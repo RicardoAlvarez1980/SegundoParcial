@@ -140,12 +140,12 @@ const bd_juego = [
 var estadoPreguntas = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var cantidadAcertadas = 0;
 
-//variable que mantiene el num de pregunta acual
+//variable que mantiene el num de pregunta actual
 var numPreguntaActual = -1;
 
 // Obtener el elemento del cronómetro
 const timer = document.getElementById("tiempo");
-// Establecer el tiempo inicial en 60 segundos
+// Establecer el tiempo inicial en 180 segundos
 let timeLeft = TIEMPO_DEL_JUEGO;
 var countdown;
 
