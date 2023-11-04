@@ -260,7 +260,9 @@ body {
 
 /* Estilo para el botón "Reiniciar Juego" al pasar el mouse sobre él */
 #restart-button:hover {
-  background-color: #ddd; /* Cambiar el color de fondo al pasar el mouse sobre el botón */
+  font-weight: bolder;
+  background-color: white;
+  color: #007bff; /* Cambiar el color de fondo al pasar el mouse sobre el botón */
 }
 /* Agrega estas reglas de estilo a tu archivo de estilos (ahorcado.css) */
 #info-container {
